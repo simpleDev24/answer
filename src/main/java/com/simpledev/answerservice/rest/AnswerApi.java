@@ -1,4 +1,4 @@
-package com.simpledev.answer.rest;
+package com.simpledev.answerservice.rest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -20,8 +20,14 @@ public class AnswerApi {
 
 	@Value("${answer4}")
 	private String answer4;
+	
+	@Value("${common.prop.one}")
+	private String comPropOne;
+	
+	@Value("${common.prop.two}")
+	private String comPropTwo;
 
-	@GetMapping("/getAnswer")
+	@GetMapping("/answer")
 	public String getAnswer() {
 
 		StringBuilder sb = new StringBuilder();
@@ -32,6 +38,10 @@ public class AnswerApi {
 		.append(answer3)
 		.append("<br>")
 		.append(answer4)
+		.append("<br>")
+		.append(comPropOne)
+		.append(" :: ")
+		.append(comPropTwo)
 		.append("<br>")
 		.append("=========")
 		.append("<br>");
